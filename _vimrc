@@ -35,6 +35,9 @@ inoremap <C-e> <Esc>$a
 inoremap <C-a> <Esc>^a
 noremap <C-e> <Esc>$a
 noremap <C-a> <Esc>^a
+inoremap <C-d> <Del>
+
+
 
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
@@ -102,3 +105,4 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "
 "
 "
+"test
