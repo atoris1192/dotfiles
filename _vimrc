@@ -33,6 +33,11 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
+" ファイルをtree表示してくれる
+NeoBundle 'scrooloose/nerdtree'
+" コメントON/OFFを手軽に実行
+NeoBundle 'tomtom/tcomment_vim'
+"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
