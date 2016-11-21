@@ -38,7 +38,6 @@ noremap <C-a> <Esc>^a
 inoremap <C-d> <Del>
 
 
-
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set nocompatible               " Be iMproved
@@ -84,6 +83,7 @@ NeoBundleCheck
 
  " Unite
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru'
 " let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
