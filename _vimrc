@@ -5,6 +5,10 @@ set noswapfile
 set title
 set incsearch
 set wildmenu wildmode=list:full
+set mouse=n
+set cursorline " カーソルラインの強調表示を有効化
+
+
 
 "マッピング
 inoremap <C-e> <Esc>$a
