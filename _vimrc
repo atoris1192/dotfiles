@@ -7,15 +7,26 @@ set incsearch
 set wildmenu wildmode=list:full
 set mouse=n
 set cursorline " カーソルラインの強調表示を有効化
+" " ステータスラインを表示
+ set laststatus=2 " ステータスラインを常に表示
+ set statusline=%F%r%h%= " ステータスラインの内容
+" " インクリメンタル検索を有効化
+ set incsearch
+" " 補完時の一覧表示機能有効化
+ set wildmenu wildmode=list:full
 
+ set expandtab                                    "
+" タブを半角スペースに置き換える
+ set tabstop=2                                    "
+" タブ幅をスペース4つ分にする
+ set shiftwidth=2                                 " 自動インデントの幅
+" " タブ、行末スペースなどを可視化した時に表示する記号
+ set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
+ hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=white
+ match ZenkakuSpace /　/
 
-
-
-
-
-
-
-
+""新しい行を作ったときに高度な自動インデントを行う
+set smartindent
 
 
 "macbook test
