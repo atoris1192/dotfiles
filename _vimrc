@@ -6,6 +6,15 @@ set title
 set incsearch
 set wildmenu wildmode=list:full
 
+
+
+
+
+
+
+
+
+"macbook test
 "マッピング
 inoremap <C-e> <Esc>$a
 inoremap <C-a> <Esc>^a
