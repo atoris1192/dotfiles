@@ -6,7 +6,6 @@ set title
 set wildmenu wildmode=list:full
 set mouse=n
 set cursorline " カーソルラインの強調表示を有効化
-" " ステータスラインを表示
  set laststatus=2 " ステータスラインを常に表示
  set statusline=%F%r%h%= " ステータスラインの内容
 " " インクリメンタル検索を有効化
@@ -28,11 +27,19 @@ set cursorline " カーソルラインの強調表示を有効化
 set smartindent
 
 "マッピング
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>^a
-noremap <C-e> <Esc>$a
-noremap <C-a> <Esc>^a
+"mac del
 inoremap <C-d> <Del>
+" jjでエスケープ
+inoremap <silent> jj <ESC>
+" 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
+inoremap <silent> っｊ <ESC>
+" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
+nnoremap あ a
+nnoremap い i
+nnoremap う u
+nnoremap お o
+nnoremap っｄ dd
+nnoremap っｙ yy
 
 
 "NeoBundle Scripts-----------------------------
