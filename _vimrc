@@ -3,7 +3,6 @@ set ruler
 set number
 set noswapfile
 set title
-set incsearch
 set wildmenu wildmode=list:full
 set mouse=n
 set cursorline " カーソルラインの強調表示を有効化
@@ -28,8 +27,6 @@ set cursorline " カーソルラインの強調表示を有効化
 ""新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 
-
-"macbook test
 "マッピング
 inoremap <C-e> <Esc>$a
 inoremap <C-a> <Esc>^a
@@ -63,7 +60,10 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'scrooloose/nerdtree'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
-"
+
+ " Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -79,11 +79,7 @@ filetype plugin indent on
 NeoBundleCheck
 "  "End NeoBundle Scripts-------------------------
 
-
-
  " Unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
 " let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
@@ -95,14 +91,3 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
 
 
-
-
-"
-"
-
-
-"
-"
-"
-"
-"test
