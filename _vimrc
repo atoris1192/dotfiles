@@ -71,6 +71,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+
  " Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -99,9 +100,10 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-"markdown   PrevimOpenで表示
+"markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
 let g:previm_open_cmd = 'open -a Safari'
+nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 
-nnoremap <silent> ,md :PrevimOpen<CR>
+
