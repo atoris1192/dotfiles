@@ -103,3 +103,5 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
 let g:previm_open_cmd = 'open -a Safari'
+
+nnoremap <silent> ,md :PrevimOpen<CR>
