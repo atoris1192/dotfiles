@@ -27,6 +27,7 @@ set cursorline " カーソルラインの強調表示を有効化
 set smartindent
 
 "マッピング
+nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
 inoremap <C-d> <Del>
 " jjでエスケープ
@@ -103,3 +104,5 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
 let g:previm_open_cmd = 'open -a Safari'
+
+nnoremap <silent> ,md :PrevimOpen<CR>
