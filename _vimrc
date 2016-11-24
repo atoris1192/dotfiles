@@ -30,6 +30,9 @@ set smartindent
 nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
 inoremap <C-d> <Del>
+"mac ctrl + e
+inoremap <c-e> <ESC>$a 
+
 " jjでエスケープ
 inoremap <silent> jj <ESC>
 " 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
