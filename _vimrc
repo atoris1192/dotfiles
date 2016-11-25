@@ -45,6 +45,7 @@ nnoremap っｄ dd
 nnoremap っｙ yy
 
 
+
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set nocompatible               " Be iMproved
@@ -78,6 +79,9 @@ NeoBundle 'tyru/open-browser.vim'
  " Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+
+" emmet
+NeoBundle 'mattn/emmet-vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
