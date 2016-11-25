@@ -32,7 +32,6 @@ nnoremap <silent> ,tr :NERDTreeToggle<CR>
 inoremap <C-d> <Del>
 "mac ctrl + e
 inoremap <c-e> <ESC>$a 
-
 " jjでエスケープ
 inoremap <silent> jj <ESC>
 " 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
@@ -108,7 +107,48 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
 let g:previm_open_cmd = 'open -a Safari'
-
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 
+"挿入モード時、ステータスラインの色を変更
+"""""""""""""""""""""""""""""""
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+    augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+    augroup END
+ endif
+
+ let s:slhlcmd = ''
+ function! s:StatusLine(mode)
+    if a:mode == 'Enter'
+      silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+      silent exec g:hi_insert
+    else
+      highlight clear StatusLine
+      silent exec s:slhlcmd
+    endif
+ endfunction
+
+ function! s:GetHighlight(hi)
+     redir => hl
+       exec 'highlight '.a:hi
+     redir END
+     let hl = substitute(hl, '[\r\n]', '', 'g')
+     let hl = substitute(hl, 'xxx', '', '')
+     return hl
+  endfunction
+
+  if has('unix') && !has('gui_running')
+      " ESC後にすぐ反映されない対策
+      inoremap <silent> <ESC> <ESC>
+  endif
+
+"Tab、行末の半角スペースを明示的に表示する。
+set list
+set listchars=tab:^\ ,trail:~
+
+  
 
