@@ -29,8 +29,13 @@ set smartindent
 "マッピング
 
 
+inoremap <C-u> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
-inoremap <silent>  """" """"<Left>
+
+" inoremap <silent>  """" """"<Left>
 
 nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
