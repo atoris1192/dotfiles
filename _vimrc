@@ -54,6 +54,10 @@ nnoremap お o
 nnoremap っｄ dd
 nnoremap っｙ yy
 
+" 空行挿入 shift + o
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+
+
 
 
 "NeoBundle Scripts-----------------------------
