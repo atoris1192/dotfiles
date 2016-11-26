@@ -58,8 +58,6 @@ nnoremap っｙ yy
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 
 
-
-
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set nocompatible               " Be iMproved
@@ -116,9 +114,9 @@ NeoBundleCheck
  " Unite
 " let g:unite_enable_start_insert=1
 " let g:unite_source_file_mru_limit = 200
-g:neoyank#limit
-g:neoyank#file
-g:neoyank#registers
+" let g:neoyank#limit
+" let g:neoyank#file
+" let g:neoyank#registers
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
