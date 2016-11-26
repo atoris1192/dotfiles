@@ -95,7 +95,7 @@ NeoBundle 'tyru/open-browser.vim'
  " Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-
+NeoBundle 'Shougo/neoyank.vim'
 " emmet
 NeoBundle 'mattn/emmet-vim'
 
@@ -115,8 +115,10 @@ NeoBundleCheck
 
  " Unite
 " let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
+" let g:unite_source_file_mru_limit = 200
+g:neoyank#limit
+g:neoyank#file
+g:neoyank#registers
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
