@@ -25,6 +25,26 @@ set cursorline " カーソルラインの強調表示を有効化
 
 ""新しい行を作ったときに高度な自動インデントを行う
 set smartindent
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
+" バッファが編集中でもその他のファイルを開けるように
+set hidden
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" テキスト挿入中の自動折り返しを日本語に対応させる
+set formatoptions+=mM
+
+" 自動的にインデントする (noautoindent:インデントしない)
+set oautoindent
+
+" auto comment off
+augroup auto_comment_off
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=r
+    autocmd BufEnter * setlocal formatoptions-=o
+augroup END
+
+
 
 "マッピング
 
@@ -90,7 +110,8 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
-
+"neocomlite
+NeoBundle 'Shougo/neocomplete.vim'
  " Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
