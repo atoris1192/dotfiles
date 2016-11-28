@@ -1,3 +1,7 @@
+
+"インサートモードから抜ける時に自動的に nopaste に戻す
+autocmd InsertLeave * set nopaste
+
 set hlsearch
 syntax on
 set ruler
@@ -185,9 +189,6 @@ NeoBundleCheck
 
 
 
-" colorscheme
-colorscheme molokai
-
 
 " Unite
 " let g:unite_enable_start_insert=1
@@ -250,7 +251,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Shell like behavior(not recommended).
 "set completeopt+=longest
 "let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
+"let g:neocomplete#disable_auto_complete = 1D@{1}
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -274,3 +275,8 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+" colorscheme
+colorscheme molokai
+set background=dark
