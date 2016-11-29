@@ -155,10 +155,6 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
- " Unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-
 " emmet
 NeoBundle 'mattn/emmet-vim'
 "色設定
@@ -170,8 +166,6 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neoyank.vim'
-" emmet
-NeoBundle 'mattn/emmet-vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -189,6 +183,11 @@ NeoBundleCheck
 
 
 
+
+" emmet
+let g:user_emmet_settings = {
+\   'lang' : 'ja'
+\ }
 
 " Unite
 " let g:unite_enable_start_insert=1
