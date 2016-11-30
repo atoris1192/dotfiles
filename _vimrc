@@ -1,4 +1,31 @@
 
+set nocompatible
+" set encoding=utf-8
+" scriptencoding
+" set fileencodings
+" set showmatch
+set showcmd
+set ignorecase
+set smartcase
+"検索した際に最後の語句の次に最初の語句にループしないようにする
+set nowrapscan
+set nobackup
+" バックスペース押下時の挙動を変更する
+set backspace=indent,eol,start
+"  yank したテキストをクリップボードに格納する
+set clipboard=unnamed,autoselect
+"スクロール送りを開始する前後の行数を指定
+set scrolloff=5
+"検索語が画面の真ん中に来るようにする
+nmap n nzz 
+nmap N Nzz 
+nmap * *zz 
+nmap # #zz 
+nmap g* g*zz 
+nmap g# g#zz
+
+
+
 "インサートモードから抜ける時に自動的に nopaste に戻す
 autocmd InsertLeave * set nopaste
 
@@ -23,9 +50,9 @@ set cursorline " カーソルラインの強調表示を有効化
  set tabstop=2
  set shiftwidth=2
 " タブ、行末スペースなどを可視化した時に表示する記号
- set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
- hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=white
- match ZenkakuSpace /　/
+set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
+hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=white
+match ZenkakuSpace /　/
 
 "新しい行を作ったときに高度な自動インデントを行う
 set smartindent
@@ -41,13 +68,13 @@ set formatoptions+=mM
 set noautoindent
 " auto comment off
 augroup auto_comment_off
-    autocmd!
-    autocmd BufEnter * setlocal formatoptions-=r
-    autocmd BufEnter * setlocal formatoptions-=o
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
 augroup END
 
 "マッピング
-inoremap <C-u> <Left>
+" inoremap <C-u> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
@@ -56,7 +83,12 @@ nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
 inoremap <C-d> <Del>
 "mac ctrl + e
-inoremap <c-e> <ESC>$a 
+inoremap <c-e> <ESC>$a
+"誤改行の戻し操作
+inoremap <C-u> <ESC>v$d<Up>$pA
+
+
+
 " jjでエスケープ
 inoremap <silent> jj <ESC>
 " 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
@@ -80,42 +112,51 @@ nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 
 
 
+
+" 閉じタグ補完 </
+augroup MyXML
+autocmd!
+autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
 "挿入モード時、ステータスラインの色を変更
 """""""""""""""""""""""""""""""
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
 if has('syntax')
-    augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-    augroup END
- endif
+  augroup InsertHook
+  autocmd!
+  autocmd InsertEnter * call s:StatusLine('Enter')
+  autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
 
- let s:slhlcmd = ''
- function! s:StatusLine(mode)
-    if a:mode == 'Enter'
-      silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-      silent exec g:hi_insert
-    else
-      highlight clear StatusLine
-      silent exec s:slhlcmd
-    endif
- endfunction
-
- function! s:GetHighlight(hi)
-     redir => hl
-       exec 'highlight '.a:hi
-     redir END
-     let hl = substitute(hl, '[\r\n]', '', 'g')
-     let hl = substitute(hl, 'xxx', '', '')
-     return hl
-  endfunction
-
-  if has('unix') && !has('gui_running')
-      " ESC後にすぐ反映されない対策
-      inoremap <silent> <ESC> <ESC>
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
   endif
+endfunction
+
+function! s:GetHighlight(hi)
+   redir => hl
+     exec 'highlight '.a:hi
+   redir END
+   let hl = substitute(hl, '[\r\n]', '', 'g')
+   let hl = substitute(hl, 'xxx', '', '')
+   return hl
+endfunction
+
+if has('unix') && !has('gui_running')
+    " ESC後にすぐ反映されない対策
+    inoremap <silent> <ESC> <ESC>
+endif
 
 
 "Tab、行末の半角スペースを明示的に表示する。
@@ -127,10 +168,10 @@ nnoremap <silent> ,tr :NERDTreeToggle<CR>
 
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+" set nocompatible               " Be iMproved
 
 " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -144,6 +185,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
+"GitHub以外のGitリポジトリにあるプラグインを利用する場合
+" NeoBundle 'git://git.wincent.com/command-t.git'
+"Git以外のリポジトリにあるプラグインをを利用する場合
+" NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
+ NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+
+
 NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'flazz/vim-colorschemes'
 " ファイルをtree表示してくれる
@@ -162,7 +210,7 @@ NeoBundle 'tomasr/molokai'
 
 "neocomlite
 NeoBundle 'Shougo/neocomplete.vim'
- " Unite
+" Unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neoyank.vim'
@@ -227,16 +275,18 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
+" 補完候補が表示されている場合は確定。そうでない場合は改行
+inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-      \ }
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
+let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -248,9 +298,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+" For no inserting <CR> key.
+"return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -295,3 +345,4 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " colorscheme
 colorscheme molokai
 set background=dark
+autocmd colorscheme molokai highlight Visual ctermbg=8
