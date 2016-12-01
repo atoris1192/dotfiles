@@ -83,9 +83,8 @@ inoremap <C-d> <Del>
 "mac ctrl + e
 inoremap <c-e> <ESC>$a
 "誤改行の戻し操作
-inoremap <silent> zz <ESC>v$d<Up>$pA
-inoremap <silent> っｚ <ESC>v$d<Up>$pA
-
+inoremap <silent> xz <ESC>v$d<Up>$pA
+inoremap <silent> ｘｚ <ESC>v$d<Up>$pA
 
 " jjでエスケープ
 inoremap <silent> jj <ESC>
@@ -100,7 +99,6 @@ nnoremap っｄ dd
 nnoremap っｙ yy
 " 空行挿入 shift + o
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
-
 
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
