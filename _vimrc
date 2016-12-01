@@ -110,12 +110,12 @@ nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 
 
 " 閉じタグ補完 </
-augroup MyXML
-autocmd!
-autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-augroup END
+" augroup MyXML
+" autocmd!
+" autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+" autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+" autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+" augroup END
 
 "挿入モード時、ステータスラインの色を変更
 """""""""""""""""""""""""""""""
@@ -185,7 +185,7 @@ NeoBundle 'tpope/vim-fugitive'
 " NeoBundle 'git://git.wincent.com/command-t.git'
 "Git以外のリポジトリにあるプラグインをを利用する場合
 " NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
- NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+"  NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
