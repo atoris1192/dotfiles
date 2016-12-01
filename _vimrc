@@ -24,8 +24,6 @@ nmap # #zz
 nmap g* g*zz 
 nmap g# g#zz
 
-
-
 "インサートモードから抜ける時に自動的に nopaste に戻す
 autocmd InsertLeave * set nopaste
 
@@ -74,7 +72,7 @@ augroup auto_comment_off
 augroup END
 
 "マッピング
-" inoremap <C-u> <Left>
+inoremap <C-u> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
@@ -85,8 +83,8 @@ inoremap <C-d> <Del>
 "mac ctrl + e
 inoremap <c-e> <ESC>$a
 "誤改行の戻し操作
-inoremap <C-u> <ESC>v$d<Up>$pA
-
+inoremap <silent> zz <ESC>v$d<Up>$pA
+inoremap <silent> っｚ <ESC>v$d<Up>$pA
 
 
 " jjでエスケープ
