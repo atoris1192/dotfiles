@@ -97,8 +97,8 @@ nnoremap う u
 nnoremap お o
 nnoremap っｄ dd
 nnoremap っｙ yy
-" 空行挿入 shift + o
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+" 空行挿入 shift + o  Xに変更
+nnoremap X :<C-u>call append(expand('.'), '')<Cr>j
 
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
