@@ -46,14 +46,20 @@ set cursorline " カーソルラインの強調表示を有効化
  set expandtab
 " タブ幅をスペース2つ分にする
  set tabstop=2
- set shiftwidth=2
+
+" 改行時にインデントする (インデントしないは一つしか機能しない)
+" set autoindent
+set shiftwidth=2
+"新しい行を作ったときに高度な自動インデントを行う
+" set smartindent
+set cindent
+" set noautoindent
+
 " タブ、行末スペースなどを可視化した時に表示する記号
 set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
 hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=white
 match ZenkakuSpace /　/
 
-"新しい行を作ったときに高度な自動インデントを行う
-set smartindent
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 " バッファが編集中でもその他のファイルを開けるように
@@ -62,8 +68,9 @@ set hidden
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
-" 自動的にインデントする (noautoindent:インデントしない)
-set noautoindent
+
+
+
 " auto comment off
 augroup auto_comment_off
   autocmd!
@@ -75,7 +82,7 @@ augroup END
 inoremap <C-u> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+inoremap <C-f> <Right>
 " inoremap <silent>  """" """"<Left>
 nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
