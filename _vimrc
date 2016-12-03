@@ -17,12 +17,12 @@ set clipboard=unnamed,autoselect
 "スクロール送りを開始する前後の行数を指定
 set scrolloff=5
 "検索語が画面の真ん中に来るようにする
-nmap n nzz 
-nmap N Nzz 
-nmap * *zz 
-nmap # #zz 
-nmap g* g*zz 
-nmap g# g#zz
+" nmap n nzz 
+" nmap N Nzz 
+" nmap * *zz 
+" nmap # #zz 
+" nmap g* g*zz 
+" nmap g# g#zz
 
 "インサートモードから抜ける時に自動的に nopaste に戻す
 autocmd InsertLeave * set nopaste
@@ -107,35 +107,23 @@ nnoremap っｙ yy
 " 空行挿入 shift + o  Xに変更
 nnoremap X :<C-u>call append(expand('.'), '')<Cr>j
 
+
+"vimrc ショートカット
+nnoremap <Space><Space>. :e $MYVIMRC<CR>
+nnoremap <Space><Space>. :e $MYVIMRC<CR>
+
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
 " let g:previm_open_cmd = 'open -a Safari'
 let g:previm_open_cmd = ''
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
-
-
 " autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-"
-" " Previm
-" let g:previm_open_cmd = ''
 " nnoremap [previm] <Nop>
 " nmap <Space>p [previm]
 " nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
 " nnoremap <silent> [previm]r :call previm#refresh()<CR>
 
-
-
-
-
-
-" 閉じタグ補完 </
-" augroup MyXML
-" autocmd!
-" autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-" autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-" autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-" augroup END
 
 "挿入モード時、ステータスラインの色を変更
 """""""""""""""""""""""""""""""
