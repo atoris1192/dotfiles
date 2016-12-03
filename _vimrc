@@ -24,8 +24,6 @@ nmap # #zz
 nmap g* g*zz 
 nmap g# g#zz
 
-
-
 "インサートモードから抜ける時に自動的に nopaste に戻す
 autocmd InsertLeave * set nopaste
 
@@ -48,14 +46,20 @@ set cursorline " カーソルラインの強調表示を有効化
  set expandtab
 " タブ幅をスペース2つ分にする
  set tabstop=2
- set shiftwidth=2
+
+" 改行時にインデントする (インデントしないは一つしか機能しない)
+" set autoindent
+set shiftwidth=2
+"新しい行を作ったときに高度な自動インデントを行う
+" set smartindent
+set cindent
+" set noautoindent
+
 " タブ、行末スペースなどを可視化した時に表示する記号
 set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
 hi ZenkakuSpace cterm=underline ctermfg=lightblue ctermbg=white
 match ZenkakuSpace /　/
 
-"新しい行を作ったときに高度な自動インデントを行う
-set smartindent
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 " バッファが編集中でもその他のファイルを開けるように
@@ -64,8 +68,9 @@ set hidden
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
-" 自動的にインデントする (noautoindent:インデントしない)
-set noautoindent
+
+
+
 " auto comment off
 augroup auto_comment_off
   autocmd!
@@ -74,10 +79,10 @@ augroup auto_comment_off
 augroup END
 
 "マッピング
-" inoremap <C-u> <Left>
+inoremap <C-u> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+inoremap <C-f> <Right>
 " inoremap <silent>  """" """"<Left>
 nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
@@ -85,9 +90,8 @@ inoremap <C-d> <Del>
 "mac ctrl + e
 inoremap <c-e> <ESC>$a
 "誤改行の戻し操作
-inoremap <C-u> <ESC>v$d<Up>$pA
-
-
+inoremap <silent> xz <ESC>v$d<Up>$pA
+inoremap <silent> ｘｚ <ESC>v$d<Up>$pA
 
 " jjでエスケープ
 inoremap <silent> jj <ESC>
@@ -100,26 +104,38 @@ nnoremap う u
 nnoremap お o
 nnoremap っｄ dd
 nnoremap っｙ yy
-" 空行挿入 shift + o
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
-
+" 空行挿入 shift + o  Xに変更
+nnoremap X :<C-u>call append(expand('.'), '')<Cr>j
 
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
-let g:previm_open_cmd = 'open -a Safari'
+" let g:previm_open_cmd = 'open -a Safari'
+let g:previm_open_cmd = ''
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
+
+
+" autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+"
+" " Previm
+" let g:previm_open_cmd = ''
+" nnoremap [previm] <Nop>
+" nmap <Space>p [previm]
+" nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+" nnoremap <silent> [previm]r :call previm#refresh()<CR>
+
+
 
 
 
 
 " 閉じタグ補完 </
-augroup MyXML
-autocmd!
-autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-augroup END
+" augroup MyXML
+" autocmd!
+" autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+" autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+" autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+" augroup END
 
 "挿入モード時、ステータスラインの色を変更
 """""""""""""""""""""""""""""""
@@ -189,7 +205,7 @@ NeoBundle 'tpope/vim-fugitive'
 " NeoBundle 'git://git.wincent.com/command-t.git'
 "Git以外のリポジトリにあるプラグインをを利用する場合
 " NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
- NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+"  NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
