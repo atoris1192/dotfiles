@@ -110,8 +110,21 @@ nnoremap X :<C-u>call append(expand('.'), '')<Cr>j
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
 " let g:previm_open_cmd = 'open -a Chrome'
-let g:previm_open_cmd = 'open -a Safari'
+" let g:previm_open_cmd = 'open -a Safari'
+let g:previm_open_cmd = ''
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
+
+
+" autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+"
+" " Previm
+" let g:previm_open_cmd = ''
+" nnoremap [previm] <Nop>
+" nmap <Space>p [previm]
+" nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+" nnoremap <silent> [previm]r :call previm#refresh()<CR>
+
+
 
 
 
