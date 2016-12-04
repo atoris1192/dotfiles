@@ -1,7 +1,4 @@
 
-
-"reverの確認
-
 set nocompatible
 " set encoding=utf-8
 " scriptencoding
