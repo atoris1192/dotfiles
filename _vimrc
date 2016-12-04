@@ -221,7 +221,9 @@ NeoBundle 'LeafCage/yankround.vim'
 
 "quikrun
 NeoBundle 'thinca/vim-quickrun'
-
+set filetype=javascript 
+" set filetype=ruby 
+let g:quickrun_config = {'*': {'hook/time/enable': '1'},
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
