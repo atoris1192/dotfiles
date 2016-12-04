@@ -189,12 +189,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-"GitHub以外のGitリポジトリにあるプラグインを利用する場合
-" NeoBundle 'git://git.wincent.com/command-t.git'
-"Git以外のリポジトリにあるプラグインをを利用する場合
-" NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-"  NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
-
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'flazz/vim-colorschemes'
@@ -224,6 +218,12 @@ NeoBundle 'surround.vim'
 
 "yankring.vim互換
 NeoBundle 'LeafCage/yankround.vim'
+
+"quikrun
+NeoBundle 'thinca/vim-quickrun'
+set filetype=javascript 
+" set filetype=ruby 
+let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
