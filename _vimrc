@@ -53,8 +53,8 @@ set cursorline " カーソルラインの強調表示を有効化
 set shiftwidth=2
 "新しい行を作ったときに高度な自動インデントを行う
 " set smartindent
-set cindent
-" set noautoindent
+" set cindent
+set noautoindent
 
 " タブ、行末スペースなどを可視化した時に表示する記号
 set listchars=tab:>\-,trail:-,extends:>,precedes:<,nbsp:% 
@@ -115,9 +115,8 @@ nnoremap <Space><Space>. :e $MYVIMRC<CR>
 
 "markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
-" let g:previm_open_cmd = 'open -a Chrome'
-" let g:previm_open_cmd = 'open -a Safari'
-let g:previm_open_cmd = ''
+let g:previm_open_cmd = 'open -a Safari'
+" let g:previm_open_cmd = ''
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 " autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " nnoremap [previm] <Nop>
