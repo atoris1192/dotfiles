@@ -1,1 +1,0 @@
-/Users/niuishi/.config/nvim/init.vim
