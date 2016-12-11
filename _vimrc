@@ -350,3 +350,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 colorscheme molokai
 set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
+
+set completeopt=menuone
+let g:neocomplcache_enable_auto_close_preview = 0
+
