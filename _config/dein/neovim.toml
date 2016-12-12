@@ -1,4 +1,6 @@
 [[plugins]] # 補完
+repo = 'Shougo/context_filetype.vim'
+
 repo = 'Shougo/deoplete.nvim'
 if = 'has("python3")'
 depends = 'context_filetype.vim'

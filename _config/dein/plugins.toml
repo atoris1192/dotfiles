@@ -30,6 +30,12 @@ hook_add = '''
     let g:vim_markdown_frontmatter = 1
     let g:vim_markdown_math = 1
 '''
+[[plugins]] # previm
+repo  = 'kannokanno/previm'
+
+[[plugins]] # browterOpen
+repo  = 'tyru/open-browser.vim'
+
 
 [[plugins]] # Golang
 repo = 'fatih/vim-go'
@@ -49,3 +55,6 @@ repo = 'w0ng/vim-hybrid'
 
 [[plugins]] # solarized
 repo = 'altercation/vim-colors-solarized'
+
+#[[plugins]] # 空白文字をハイライト
+#repo = 'bronson/vim-trailing-whitespace'
