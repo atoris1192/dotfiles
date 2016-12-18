@@ -31,7 +31,9 @@ nnoremap X :<C-u>call append(expand('.'), '')<Cr>j
 " タブを半角スペースに置き換える
 set expandtab
 " タブ幅をスペース2つ分にする
-set tabstop=4
+set tabstop=2
+" tab 移動幅
+set shiftwidth=2
 "set autoindent " 改行時に前の行のインデントを継続する
 "set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 "set shiftwidth=4 " smartindentで増減する幅
@@ -48,7 +50,6 @@ inoremap <C-u> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Right>
-" inoremap <silent>  """" """"<Left>
 nnoremap <silent> ,tr :NERDTreeToggle<CR>
 "mac del
 inoremap <C-d> <Del>
@@ -78,6 +79,7 @@ set mouse=n
 set cursorline " カーソルラインの強調表示を有効化
 set laststatus=2 " ステータスラインを常に表示
 set statusline=%F%r%h%= " ステータスラインの内容
+set ambiwidth=double " ○表示
 
 "検索後に、大文字小文字が混在している時は区別する
 set smartcase
@@ -121,7 +123,6 @@ set ambiwidth=double " □や○文字が崩れる問題を解決
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Safari'
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
-
 
 
 
