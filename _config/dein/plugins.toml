@@ -58,3 +58,6 @@ repo = 'altercation/vim-colors-solarized'
 
 #[[plugins]] # 空白文字をハイライト
 #repo = 'bronson/vim-trailing-whitespace'
+
+#[[plugins]] # コメントアウト
+repo = 'tyru/caw.vim.git'
