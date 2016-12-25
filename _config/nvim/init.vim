@@ -96,6 +96,7 @@ set number
 " コマンド入力の補完 tab キーで選択
  set wildmenu wildmode=list:full
 
+
 " ペースト設定 自動インデント防止
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
