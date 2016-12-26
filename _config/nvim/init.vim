@@ -125,10 +125,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Safari'
 nnoremap <silent> ,md :PrevimOpen<CR> "PrevimOpenで表示
 
-"NeoBundle "tyru/caw.vim.git"
-nmap <C-K> <Plug>(caw:hatpos:toggle)
-vmap <C-K> <Plug>(caw:hatpos:toggle)
-
 
 
 "挿入モード時、ステータスラインの色を変更
