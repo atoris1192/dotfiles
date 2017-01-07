@@ -167,7 +167,8 @@ if has('unix') && !has('gui_running')
     inoremap <silent> <ESC> <ESC>
 endif
 
-
+"nerdtree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 
 
