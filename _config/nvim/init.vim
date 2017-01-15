@@ -12,6 +12,9 @@ syntax on
 " 背景色を dark にする
 set background=dark
 
+"入力中コマンド表示
+set showcmd
+
 " 輝度とコントラストは、最初はデフォルトを試すのがオススメです
 " 自分はコントラストだけ高くしています
 " (ここではコメントアウトしています)
@@ -164,6 +167,8 @@ if has('unix') && !has('gui_running')
     inoremap <silent> <ESC> <ESC>
 endif
 
+"nerdtree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 
 
@@ -174,9 +179,6 @@ endif
 
 
 
-
-
-" dein
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 

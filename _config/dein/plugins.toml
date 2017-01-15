@@ -59,3 +59,5 @@ repo = 'altercation/vim-colors-solarized'
 #[[plugins]] # 空白文字をハイライト
 #repo = 'bronson/vim-trailing-whitespace'
 
+[[plugins]] # nedtree 
+repo = 'scrooloose/nerdtree'
