@@ -82,7 +82,7 @@ augroup auto_comment_off
 augroup END
 
 "マッピング
-inoremap <C-u> <Left>
+inoremap <C-b> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Right>
@@ -189,7 +189,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+" NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
