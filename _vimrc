@@ -1,5 +1,7 @@
 
 set nocompatible
+" markdownの折りたたみなし
+let g:vim_markdown_folding_disabled=1
 " set encoding=utf-8
 " scriptencoding
 " set fileencodings
