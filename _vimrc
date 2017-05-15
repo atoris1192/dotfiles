@@ -7,9 +7,8 @@ let g:vim_markdown_folding_disabled=1
 " set fileencodings
 " set showmatch
 set showcmd
-set ignorecase
 "検索後に、大文字小文字が混在している時は区別する
-set smartcase
+set noignorecase
 "検索した際に最後の語句の次に最初の語句にループしないようにする
 set nowrapscan
 set nobackup
@@ -186,6 +185,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " Add or remove your Bundles here:
 NeoBundle 'Shougo/neosnippet.vim'
